@@ -1,0 +1,73 @@
+openapi: 3.0.2
+info:
+  title: サンプルAPI
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api/account
+tags:
+  - name: users
+paths:
+  /users:
+    get:
+      summary: ユーザーを取得
+      description: ユーザーを取得
+      tags:
+        -   users
+      responses:
+        200:
+          description: 成功時
+          content:
+            application/json:
+              schema:
+                type: array
+                description: イベントの配列
+                items:
+                  $ref: "#/components/schemas/User"
+components:
+  schemas:
+    User:
+      properties:
+        status:
+          description: ステータス
+          type: string
+          example: SUCCESS
+        message:
+          description: 成功時メッセージ
+          type: string
+          example: Loaded the user
+        id:
+          description: ID
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: 名前
+          type: string
+          example: Tanaka
+        sex:
+          description: 性別
+          type: string
+          example: female
+        email:
+          description: メールアドレス
+          type: string
+          example: tanaka@test.com
+        prefecture:
+          description: prefecture
+          type: string
+          example: Tokyo
+        birthday:
+          description: 生年月日
+          type: string
+          format: date
+          example: 1980-04-22
+        created_at:
+          description: 作成日
+          type: string
+          format: date-time
+          example: 2022-07-06T15:30:00.000Z
+        updated_at:
+          description: 更新日
+          type: string
+          format: date-time
+          example: 2022-05-09T02:35:41.000Z
