@@ -1,0 +1,306 @@
+---
+openapi: 3.0.3
+info:
+  title: app
+  version: 1.0.0
+servers: []
+paths:
+  "/api/account/users":
+    get:
+      summary: index
+      tags:
+      - Api::Account::User
+      responses:
+        '200':
+          description: 全てのユーザーを取得する
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        sex:
+                          type: string
+                        email:
+                          type: string
+                        prefecture:
+                          type: string
+                        birthday:
+                          type: string
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+              example:
+                status: SUCCSESS
+                message: Loaded users
+                data:
+                - id: 200
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+                - id: 201
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+                - id: 202
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+                - id: 203
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+                - id: 204
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+                - id: 205
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+                - id: 206
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+                - id: 207
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+                - id: 208
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+                - id: 209
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+  "/api/account/users/{id}":
+    get:
+      summary: show
+      tags:
+      - Api::Account::User
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 210
+      responses:
+        '200':
+          description: 特定のuserを取得する
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      sex:
+                        type: string
+                      email:
+                        type: string
+                      prefecture:
+                        type: string
+                      birthday:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+              example:
+                status: SUCCSESS
+                message: Loaded the user
+                data:
+                  id: 210
+                  name: tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+    put:
+      summary: update
+      tags:
+      - Api::Account::User
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 211
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+            example:
+              user:
+                name: Sat
+      responses:
+        '200':
+          description: userの編集を行う
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      sex:
+                        type: string
+                      email:
+                        type: string
+                      prefecture:
+                        type: string
+                      birthday:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+              example:
+                status: SUCCSESS
+                message: Updated the user
+                data:
+                  id: 211
+                  name: Sat
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:10:16.000Z'
+                  updated_at: '2022-05-12T08:10:16.000Z'
+    delete:
+      summary: destroy
+      tags:
+      - Api::Account::User
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 250
+      responses:
+        '200':
+          description: userを削除する
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      sex:
+                        type: string
+                      email:
+                        type: string
+                      prefecture:
+                        type: string
+                      birthday:
+                        type: string
+                      created_at:
+                        type: string
+                      updated_at:
+                        type: string
+              example:
+                status: SUCCSESS
+                message: Deleted the user
+                data:
+                  id: 250
+                  name: Tanaka
+                  sex: male
+                  email: tanaka@tanaka.com
+                  prefecture: Tokyo
+                  birthday: '2000-02-01'
+                  created_at: '2022-05-12T08:23:48.000Z'
+                  updated_at: '2022-05-12T08:23:48.000Z'
